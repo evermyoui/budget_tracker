@@ -1,9 +1,12 @@
+import { format } from "date-fns";
+
 export class Transaction {
-    constructor(title, category, type){
+    constructor(title, amount, category, type, date){
         this.title = title;
         this.id = crypto.randomUUID();
-        this.amount = 0; // initial amount
+        this.amount = amount;
         this.category = category; // Food, Transport, Subscription
         this.type = type; //either income or expenses
+        this.date = format(new Date(), "dd-MMM-yyyy");
     }
 }
